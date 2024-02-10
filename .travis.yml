@@ -11,13 +11,13 @@ script:
 
 
 after_success:
-  - docker built -t codemohitpra2103/multi-client ./client
-  - docker built -t codemohitpra2103/multi-nginx ./nginx
-  - docker built -t codemohitpra2103/multi-server ./server
-  - docker built -t codemohitpra2103/multi-worker ./worker
+  - docker build -t codemohitpra2103/multi-client ./client
+  - docker build -t codemohitpra2103/multi-nginx ./nginx
+  - docker build -t codemohitpra2103/multi-server ./server
+  - docker build -t codemohitpra2103/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push codemohitpra2103/multi-client
   - docker push codemohitpra2103/multi-nginx
   - docker push codemohitpra2103/multi-server
   - docker push codemohitpra2103/multi-worker
-  
+
